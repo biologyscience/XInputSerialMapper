@@ -1,0 +1,16 @@
+{
+  "name": "XInputSerialMapper",
+  "version": "1.0.0",
+  "description": "Emulates Xbox 360 Controller using serial data",
+  "main": "joystick.js",
+  "author": "biologyscience",
+  "license": "GPL-3.0-only",
+  "homepage": "",
+  "scripts": {
+    "start": "nodemon joystick.dev.js -e js"
+  },
+  "dependencies": {
+    "serialport": "^13.0.0",
+    "vigemclient": "^1.5.3"
+  }
+}
