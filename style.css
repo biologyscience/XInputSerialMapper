@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body
+{
+    background-image: linear-gradient(-45deg, #FFFFFF -50%, #008000);
+    margin: 0 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Ubuntu';
+    justify-content: center;
+    color: #111111;
+}
+
+#title
+{
+    color: #EEEEEE;
+    font-family: 'Quantico';
+    font-size: 100px;
+}
+
+#middle
+{
+    font-size: 1.75rem;
+    margin: 1em 0;
+    display: flex;
+    gap: .5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.link
+{
+    position: relative;
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+.link:hover { cursor: pointer; }
+
+.link::after
+{
+    content: '';
+    position: absolute;
+    height: .125em;
+    width: 0%;
+    background-color: rgb(33, 71, 222);
+    bottom: -.15em;
+    left: 0;
+    border-radius: 10rem;
+    transition: width ease 500ms;
+}
+
+.link:hover::after { width: 100%; }
+
+#bottom
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button
+{
+    position: relative;
+    background: none;
+    margin: 0 5%;
+    border: none;
+    transition: transform ease 200ms;
+}
+
+button::after
+{
+    content: '';
+    position: absolute;
+    background-color: #008000;
+    bottom: -.15em;
+    left: 0;
+    height: .125em;
+    width: 0%;
+    border-radius: 10rem;
+    transition: width ease 200ms;
+}
+
+button:hover { transform: translateY(-.25rem); }
+
+button:hover::after { width: 100%; }
+
+.icons
+{
+    height: 50px;
+    aspect-ratio: 1;
+}
