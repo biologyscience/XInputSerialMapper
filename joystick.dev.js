@@ -77,7 +77,34 @@ serialport.on('data', (serialBuffer) =>
     // catch (E) { console.warn(E); }
 });
 
-serialport.open((err) =>
+// serialport.open((err) =>
+// {
+//     console.log(err, `| Try again.\n${'_'.repeat(60)}\n`);
+// });
+
+let x = 1, y = 0, inc = -0.01, sign = 1;
+
+setInterval(() =>
 {
-    console.log(err, `| Try again.\n${'_'.repeat(60)}\n`);
+    y = sign * Math.sqrt(1 - Math.pow(x, 2));
+
+    x360.axis.leftX.setValue(parseFloat(x.toFixed(5)));
+    x360.axis.leftY.setValue(parseFloat(y.toFixed(5)));
+
+    x360.axis.rightX.setValue(-1 * parseFloat(x.toFixed(5)));
+    x360.axis.rightY.setValue(-1 * parseFloat(y.toFixed(5)));
+
+    if (x === -1)
+    {
+        inc = 0.01;
+        sign = -1
+    }
+
+    if (x === 1)
+    {
+        inc = -0.01;
+        sign = 1;
+    }
+
+    x = parseFloat((x + inc).toFixed(5));
 });
