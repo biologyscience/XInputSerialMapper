@@ -10,7 +10,7 @@
 ## Serialized JSON Object
 ```js
 {
-    ENABLED: true, // If false, all the following data is ignored
+    ENABLED: true, // (Default: true) If false, data packets will be ignored
 
     // X Y axis of the Left joystick. -100 to 100 (%)
     LX: Number, 

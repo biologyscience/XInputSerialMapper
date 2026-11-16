@@ -29,7 +29,7 @@ serialport.on('data', (serialBuffer) =>
             check = true;
         }
 
-        if (!payload.ENABLED) return;
+        if (payload.ENABLED === false) return;
 
         if (payload.LX !== undefined) x360.axis.leftX.setValue(payload.LX / 100);
         if (payload.LY !== undefined) x360.axis.leftY.setValue(payload.LY / 100);

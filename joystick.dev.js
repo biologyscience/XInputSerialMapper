@@ -4,7 +4,7 @@ const
     
 const
     vjoy = new vigemclient(),
-    serialport = new SerialPort({ path: `COM23`, baudRate: 115200, autoOpen: false });
+    serialport = new SerialPort({ path: `COM8`, baudRate: 115200, autoOpen: false });
 
 vjoy.connect();
 
@@ -18,7 +18,9 @@ serialport.on('data', (serialBuffer) =>
     {
         const payload = JSON.parse(serialBuffer.toString());
 
-        if (!payload.ENABLED) return;
+        if (payload.ENABLED === false) return;
+        
+        // console.log(payload);
 
         if (payload.LX !== undefined) x360.axis.leftX.setValue(payload.LX / 100);
         if (payload.LY !== undefined) x360.axis.leftY.setValue(payload.LY / 100);
@@ -73,14 +75,16 @@ serialport.on('data', (serialBuffer) =>
         }
     }
 
-    catch (E) { }
-    // catch (E) { console.warn(E); }
+    // catch (E) { }
+    catch (E) { console.warn(E); }
 });
 
-// serialport.open((err) =>
-// {
-//     console.log(err, `| Try again.\n${'_'.repeat(60)}\n`);
-// });
+serialport.open((err) =>
+{
+    console.log(err, `| Try again.\n${'_'.repeat(60)}\n`);
+});
+
+return;
 
 let x = 1, y = 0, inc = -0.01, sign = 1;
 
